@@ -7,8 +7,9 @@
     "build": "next build && next export",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "gh-pages -d out"
-
+    "export": "next export",
+    "push": "git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && git subtree push --prefix out origin gh-pages",
+    "deploy": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && npm run push && rm -rf ./out/"
   },
   "dependencies": {
     "@types/node": "20.5.4",
