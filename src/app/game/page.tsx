@@ -1,3 +1,4 @@
 export default function Page() {
-    return <h1>Hello, Next.js22!</h1>
+    // eslint-disable-next-line react/no-unescaped-entities
+    return <h1>Hello, Next.js!  Don't Like Me 2</h1>
 }

@@ -3,7 +3,7 @@
 
 
 const repo = 'liuning108.github.io'
-const assetPrefix = `/${repo}/`
+const assetPrefix = `/`
 const basePath = `/${repo}`
 
 const nextConfig = {
