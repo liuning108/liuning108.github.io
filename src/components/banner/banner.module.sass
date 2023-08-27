@@ -1,0 +1,87 @@
+$text-purple: rgba(67, 56, 202, 1)
+$text-purple-dark: rgba(79, 70, 229, 1)
+$text-black: rgba(17, 24, 39, 1)
+$text-white-100: rgba(229, 231, 235, 1)
+
+.container
+  margin-bottom: 6rem
+  position: relative
+  z-index: 2
+
+.title
+  font-size: 3rem
+  line-height: 1
+  letter-spacing: -0.025em
+  color: $text-black
+
+
+.title1
+  color: rgba(249,250,251,1)
+
+.title2
+  display: block
+  color: $text-purple
+
+.subTitle
+  margin-top: 0.75rem
+  font-size: 1.5rem
+  line-height: 2rem
+  color: $text-white-100
+
+.button
+  background-color: $text-purple-dark
+  color: white
+  cursor: pointer
+  outline: 0
+  border: 0
+
+  padding: 1rem  2.5rem
+  font-size: 1.125rem
+  line-height: 1.75rem
+  &:hover
+    background-color: $text-purple
+
+.buttonWrapper
+  margin-top: 1.25rem
+
+
+/**sm 640px **/
+@media (min-width: 640px)
+  .title
+       font-size: 3rem
+       line-height: 1
+  .subTitle
+      margin-top: 1.25rem
+  .buttonWrapper
+    display: flex
+    margin-top: 2rem
+
+/**sm 640px **/
+@media (min-width: 768px)
+  .title
+    font-size: 3.75rem
+    line-height: 1
+  .subTitle
+    margin-top: 1.25rem
+  .button
+    font-size: 1.125rem
+    line-height: 1.75rem
+    padding: 1rem 2.5rem
+
+@media (min-width: 1024px)
+  .container
+    text-align: left
+  .title
+    font-size: 4.5rem
+  .title2
+    display: inline
+    padding-left: 0.5rem
+    margin-left: 1rem
+  .subTitle
+    margin-left: 0
+    margin-right: 0
+  .buttonWrapper
+    justify-content: flex-start
+@media (min-width: 1280px)
+  .title2
+    display: inline
