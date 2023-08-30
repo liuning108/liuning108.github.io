@@ -4,7 +4,7 @@ import {Providers} from "@/redux/01/providers";
 
 
 export const metadata: Metadata = {
-    title: 'Zustand 02 ',
+    title: 'Zustand 03 ',
     description: '',
 }
 export default function CoffeeLayout({
