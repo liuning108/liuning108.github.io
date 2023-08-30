@@ -9,8 +9,8 @@ const basePath = `/${repo}`
 const nextConfig=()=>{
     return {
         output: 'export',
- //        assetPrefix: assetPrefix,
- // basePath: basePath,
+        assetPrefix: assetPrefix,
+        basePath: basePath,
         images: { unoptimized: true }
 
     }
