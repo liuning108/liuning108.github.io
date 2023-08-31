@@ -1,6 +1,6 @@
 1:HL["https://liuning108.github.io/_next/static/media/2aaf0723e720e8b9-s.p.woff2",{"as":"font","type":"font/woff2"}]
 2:HL["https://liuning108.github.io/_next/static/css/0e7419ff06927b9b.css",{"as":"style"}]
-0:["A5n3COtNOMt4JVVf5kClu",[[["",{"children":["redux01_1",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://liuning108.github.io/_next/static/css/0e7419ff06927b9b.css","precedence":"next"}]],"$L4"]]]]
+0:["uBOJCY1BRS-yj8OxW4n9n",[[["",{"children":["redux01_1",{"children":["__PAGE__",{}]}]},"$undefined","$undefined",true],"$L3",[[["$","link","0",{"rel":"stylesheet","href":"https://liuning108.github.io/_next/static/css/0e7419ff06927b9b.css","precedence":"next"}]],"$L4"]]]]
 5:I{"id":7767,"chunks":["272:static/chunks/webpack-847b3fc39642b46f.js","971:static/chunks/fd9d1056-d8f5e6ec3ff59217.js","596:static/chunks/596-8a8d0476845a8505.js"],"name":"default","async":false}
 6:I{"id":7920,"chunks":["272:static/chunks/webpack-847b3fc39642b46f.js","971:static/chunks/fd9d1056-d8f5e6ec3ff59217.js","596:static/chunks/596-8a8d0476845a8505.js"],"name":"default","async":false}
 7:I{"id":2415,"chunks":["713:static/chunks/713-74ca09ef52332b10.js","960:static/chunks/app/redux01_1/layout-dec042bd52722dc9.js"],"name":"Providers","async":false}
