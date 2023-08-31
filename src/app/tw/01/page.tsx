@@ -1,6 +1,7 @@
 
 import logo from '@/../public/logo.svg'
 import Image from "next/image";
+import {it} from "node:test";
 
 
 function PersonList(){
@@ -28,7 +29,7 @@ function PersonList(){
     ]
     const listItems = person.map(item=>{
         return (
-            <li className={"flex py-4 first:pt-0 last:pb-0"}>
+            <li className={"px-6 flex py-4 first:pt-0 last:pb-0"} key={item.email}>
                 <img className={"h-10 w-10 rounded-full"} src={item.imageUrl}/>
                 <div className={"ml-3 overflow-hidden"}>
                     <p className={"text-sm font-medium text-slate-900"}>{item.name}</p>
