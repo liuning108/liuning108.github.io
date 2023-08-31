@@ -4,13 +4,13 @@
 
 const repo = 'liuning108.github.io'
 const assetPrefix = `https://liuning108.github.io`
-const basePath = `/${repo}`
+const basePath = `/`
 
 const nextConfig=()=>{
     return {
         output: 'export',
         assetPrefix: assetPrefix,
-        basePath: basePath,
+        // basePath: basePath,
         images: { unoptimized: true }
 
     }

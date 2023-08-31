@@ -26,7 +26,7 @@ import web6 from '../../public/web6.png'
 import {useState} from "react";
 
 export default function Home() {
-    const [darkMode,setDarkMode] = useState(false);
+    const [darkMode,setDarkMode] = useState(true);
     let button
     if (!darkMode){
         button=<BsFillMoonStarsFill className={"cursor-pointer"} onClick={()=>setDarkMode(!darkMode)}/>
