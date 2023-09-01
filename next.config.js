@@ -9,7 +9,7 @@ const basePath = `/`
 const nextConfig=()=>{
     return {
         output: 'export',
-        assetPrefix: assetPrefix,
+        // assetPrefix: assetPrefix,
         // basePath: basePath,
         images: { unoptimized: true }
 
