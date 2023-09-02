@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components{
+  .flexrow {
+    @apply flex;
+    @apply [&>article]:flex-[1];
+  }
+
+}
+
