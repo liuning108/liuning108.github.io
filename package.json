@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export": "next export",
-    "push":  "git subtree push --prefix out origin gh-pages",
+    "push": "git subtree push --prefix out origin gh-pages",
     "github": "rm -rf node_modules/.cache && next build && next export && touch out/.nojekyll && git add out/ && git commit -m \"Deploy Next.js to gh-pages\" && npm run push"
   },
   "dependencies": {
@@ -26,7 +26,9 @@
     "react-icon": "^1.0.0",
     "react-icons": "^4.10.1",
     "react-redux": "^8.1.2",
+    "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
+    "tailwindcss-scoped-groups": "^2.0.0",
     "typescript": "5.2.2",
     "zustand": "^4.4.1"
   },

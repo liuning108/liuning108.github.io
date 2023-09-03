@@ -17,6 +17,15 @@ a {
   box-sizing: border-box;
 }
 
+/*@keyframes shimmer {*/
+/*  0% {*/
+/*    --a: 0deg*/
+/*  }*/
+/*  100%{*/
+/*    --a: 100deg*/
+/*  }*/
+/*}*/
+
 @font-face {
   font-family: "burtons";
   src: url("/Burtons.otf");
