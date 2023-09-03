@@ -90,7 +90,7 @@ export default function Home() {
                              </Link>
                          </div>
 
-                         <div className="basis-1/3 flex-1 text-black bg-white max-h-[490px] overflow-hidden ">
+                         <div className="basis-1/3 flex-1 text-black bg-white max-h-[490px] overflow-hidden  rounded-xl shadow-lg">
                              <Link href={"/canvas_js/01"} target={"_blank"}>
                              <div className={"scale-[0.6]  origin-top-left  cursor-pointer "}>
                                  <Canva01></Canva01>
