@@ -1,22 +1,22 @@
-
 "use client"
 import {BsFillMoonStarsFill, BsFillSunFill} from 'react-icons/bs'
-import  Canva01 from '@/app/canvas_js/01/page'
-import  Canva02 from '@/app/canvas_js/02/page'
-
-import {
-    AiFillAccountBook,
-    AiFillAlipayCircle,
-    AiFillApi, AiFillBug, AiFillBulb, AiFillEnvironment, AiFillGithub,
-    AiFillHome,
-    AiFillLinkedin, AiFillMail, AiFillPayCircle, AiFillQqCircle,
-    AiFillWechat,
-    AiFillYoutube
-} from 'react-icons/ai'
+import {AiFillGithub, AiFillMail, AiFillWechat} from 'react-icons/ai'
 import Image from "next/image";
 import deved from '../../../public/dev-ed-wave.png'
 import {useState} from "react";
-import Link from "next/link";
+import ArtCard from "@/components/artcard/artCard";
+import {cardList} from './ds'
+
+const ArtCardList = () => {
+
+    return cardList.map(({children, className, url}) => {
+        return (
+            <ArtCard key={url} className={className} url={url}>
+                {children}
+            </ArtCard>
+        )
+    })
+}
 
 export default function Home() {
     const [darkMode,setDarkMode] = useState(true);
@@ -26,6 +26,7 @@ export default function Home() {
     }else {
         button=<BsFillSunFill className={"cursor-pointer"} onClick={()=>setDarkMode(!darkMode)}/>
     }
+    // @ts-ignore
     return (
        <div className={darkMode?"dark":'' }>
          <main className={"font-mono bg-white px-10 md:px-20 lg:px-40 dark:bg-gray-900 dark:text-white"}>
@@ -79,47 +80,12 @@ export default function Home() {
                  <section className="py-10">
                      <div>
                          <h3 className="text-3xl py-1 dark:text-white ">练习簿</h3>
-
                      </div>
                      <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
-                         <div className="basis-1/3 flex-1 text-black bg-blue-500 max-h-[490px] overflow-hidden rounded-xl shadow-lg">
-                             <Link href={"/canvas_js/02"} target={"_blank"}>
-                                 <div className={"scale-[0.6]  origin-top-left  "}>
-                                     <Canva02></Canva02>
-                                 </div>
-                             </Link>
-                         </div>
-
-                         <div className="basis-1/3 flex-1 text-black bg-white max-h-[490px] overflow-hidden  rounded-xl shadow-lg">
-                             <Link href={"/canvas_js/01"} target={"_blank"}>
-                             <div className={"scale-[0.6]  origin-top-left  cursor-pointer "}>
-                                 <Canva01></Canva01>
-                             </div>
-                             </Link>
-                         </div>
-
-
-
-
-                         {/*div<div className="basis-1/3 flex-1 max-w-[50%]">*/}
-                         {/*    <Image*/}
-                         {/*        className="rounded-lg object-cover"*/}
-
-                         {/*        layout="responsive"*/}
-                         {/*        src={web1}*/}
-                         {/*        alt={""}*/}
-                         {/*    />*/}
-                         {/*</div>*/}
-
+                         <ArtCardList/>
                      </div>
                  </section>
              </section>
-
-             {/*<section>*/}
-             {/*    <div>*/}
-             {/*        <h3>Services I offer</h3>*/}
-             {/*    </div>*/}
-             {/*</section>*/}
 
          </main>
        </div>
