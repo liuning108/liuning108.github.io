@@ -9,12 +9,11 @@ type ArtCardProps  = {
     url:string
 }
 const ArtCard:React.FC<ArtCardProps> = ({children,className="",url}):ReactNode => {
-    const styles=twMerge(`lg:basis-[48%]  flex-1  text-black bg-white max-h-[490px] overflow-hidden  rounded-xl shadow-lg`,className)
+    const styles=twMerge(`lg:basis-[48%] relative  h-[490px] flex-1  text-black bg-white  overflow-hidden  rounded-xl shadow-lg`,className)
     return (
         <div className={styles} >
-
             <Link href={url} target={"_blank"}>
-                <div className={"scale-[0.5]  origin-top-left  cursor-pointer "}>
+                <div className={"cursor-pointer "}>
                     {children}
                 </div>
             </Link>

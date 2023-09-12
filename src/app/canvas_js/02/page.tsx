@@ -8,10 +8,10 @@ const Page = () => {
     }
     const hair =bdrsRect;
     return (
-        <main className={"font-mono flex justify-center items-center min-h-screen"}>
+        <main className={"font-mono flex justify-center items-center absolute w-full h-full"}>
 
-            <article className={"group relative bg-blue-500 w-[700px] h-[600px] flex justify-center items-center"}>
-                <h1 className={"  duration-500 absolute  group-hover:opacity-100 opacity-0 m-0 text-white text-[50px] font-bold left-[20px] top-[20px]"}>
+            <article className={"group relative bg-blue-500 min-w-full min-h-full  flex justify-center items-center"}>
+                <h1 className={"  duration-500 absolute  group-hover:opacity-100 opacity-0 m-0 text-white text-[50px] font-bold left-[40px] top-[20px]"}>
                     Where is my Cake!!
                     <br/>
                     <span className={"text-yellow-400 hidden group-active:block"}>Did you see it </span>

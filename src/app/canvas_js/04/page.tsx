@@ -148,7 +148,7 @@ const Page = () => {
     },[draw])
 
     return (
-        <main className={"min-h-screen  flex justify-center items-center"}>
+        <main className={"flex absolute w-full justify-center items-center h-full flex-1"}>
             <canvas className={"border-[3px] border-solid border-black bg-white"} ref={canvasRef} ></canvas>
         </main>
     )

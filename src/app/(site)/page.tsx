@@ -2,7 +2,7 @@
 import {BsFillMoonStarsFill, BsFillSunFill} from 'react-icons/bs'
 import {AiFillGithub, AiFillMail, AiFillWechat} from 'react-icons/ai'
 import Image from "next/image";
-import deved from '../../../public/dev-ed-wave.png'
+import deved from '../../../public/pger.png'
 import {useState} from "react";
 import ArtCard from "@/components/artcard/artCard";
 import {cardList} from './ds'
@@ -55,8 +55,8 @@ export default function Home() {
                      <AiFillMail className={"cursor-pointer"}/>
                  </div>
 
-                 <div className={"relative mx-auto bg-gradient-to-b from-cyan-500 to-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96" }>
-                     <Image  src={deved}  layout={"fill"} objectFit={"cover"} alt={""}/>
+                 <div className={"relative flex items-center justify-center mx-auto bg-gradient-to-b from-cyan-500 to-teal-500 rounded-full w-80 h-80 mt-20 overflow-hidden md:h-96 md:w-96" }>
+                     <Image  src={deved}  alt={""}/>
                  </div>
 
              </section>
@@ -65,7 +65,7 @@ export default function Home() {
                  <div className={"dark:text-white"}>
                      <h3 className={"text-3xl py-1"}>提供的服务</h3>
                      <p className={"text-xl py-2 leading-8 text-gray-80"}>
-                         作为一名开发者，我曾在多家<span className="text-teal-500">机构</span>从事远程工作，为<span className="text-teal-500">初创企业</span>提供咨询，并与各种人才合作，为企业和消费者开发数字产品。
+                         作为一名开发者，我曾在多家<span className="text-teal-500">公司</span>从事工作，为<span className="text-teal-500">初创企业</span>提供咨询，并与各种人才合作，为企业和消费者开发数字产品。
 
                      </p>
                      <p className="text-xl py-2 leading-8 text-gray-800 dark:text-gray-200">
