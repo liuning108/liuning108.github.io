@@ -9,11 +9,15 @@ import {cardList} from './ds'
 
 const ArtCardList = () => {
 
-    return cardList.map(({children, className, url}) => {
+    return cardList.map(({children, className, url,name}) => {
         return (
-            <ArtCard key={url} className={className} url={url}>
-                {children}
-            </ArtCard>
+
+            <div className={"flex flex-col xl:basis-[30%]"}>
+                <ArtCard key={url} className={className} url={url}>
+                    {children}
+                </ArtCard>
+                <p className={"text-white  py-2 font-bold text-lg"}>{name}</p>
+            </div>
         )
     })
 }
@@ -81,7 +85,7 @@ export default function Home() {
                      <div>
                          <h3 className="text-3xl py-1 dark:text-white ">练习簿</h3>
                      </div>
-                     <div className="flex flex-col gap-10 py-10 lg:flex-row lg:flex-wrap">
+                     <div className="flex flex-col gap-10 py-10 xl:flex-row xl:flex-wrap">
                          <ArtCardList/>
                      </div>
                  </section>

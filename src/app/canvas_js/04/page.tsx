@@ -7,7 +7,6 @@ import {deflateRaw} from "zlib";
 
 const Page = () => {
 
-
     let time =0
     let mouse = {x:0,y:0}
     const draw = (ctx:CanvasRenderingContext2D) =>{
