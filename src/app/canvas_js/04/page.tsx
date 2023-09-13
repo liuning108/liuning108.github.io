@@ -149,7 +149,7 @@ const Page = () => {
 
     return (
         <main className={"flex absolute w-full justify-center items-center h-full flex-1"}>
-            <canvas className={"border-[3px] border-solid border-black bg-white"} ref={canvasRef} ></canvas>
+            <canvas className={"border-[3px] border-solid border-black bg-white max-w-full"} ref={canvasRef} ></canvas>
         </main>
     )
 }
