@@ -12,8 +12,8 @@ const ArtCardList = () => {
     return cardList.map(({children, className, url,name}) => {
         return (
 
-            <div className={"flex flex-col xl:basis-[30%]"}>
-                <ArtCard key={url} className={className} url={url}>
+            <div key={url} className={"flex flex-col xl:basis-[30%]"}>
+                <ArtCard  className={className} url={url}>
                     {children}
                 </ArtCard>
                 <p className={"text-white  py-2 font-bold text-lg"}>{name}</p>
