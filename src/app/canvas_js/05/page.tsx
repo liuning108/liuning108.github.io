@@ -22,6 +22,7 @@ const Page = () => {
     let time =0
     let mouse = {x:0,y:0}
 
+    let drawCircle:any =null;
 
 
 
@@ -147,19 +148,19 @@ const Page = () => {
             ctx.arc(0,0,80,angle1,angle2)
             ctx.fill()
             ctx.fillStyle=color.yellow
-            ctx.drawCircle(60,60,30)
+            drawCircle(60,60,30)
 
         },time)
 
         drawBlock({x:2,y:1},color.blue,function () {
             ctx.fillStyle = color.white
-            ctx.drawCircle(0,0,80)
+            drawCircle(0,0,80)
             ctx.rotate(time/30)
             ctx.fillStyle = color.red
-            ctx.drawCircle(-30,0,20)
+            drawCircle(-30,0,20)
             ctx.rotate(time/40)
             ctx.fillStyle = color.yellow
-            ctx.drawCircle(40,0,50)
+            drawCircle(40,0,50)
         },time)
 
 
@@ -172,9 +173,9 @@ const Page = () => {
                 if((stime+i)%4<2){
                   r =10
                 }
-                ctx.drawCircle(60,0,r)
+                drawCircle(60,0,r)
                 ctx.fillStyle = color.yellow
-                ctx.drawCircle(30,5,20-r)
+                drawCircle(30,5,20-r)
 
             }
 
@@ -192,7 +193,7 @@ const Page = () => {
             ctx.fillRect(0,0,120,80)
 
             ctx.fillStyle = color.white
-            ctx.drawCircle(0,40,stime%20)
+            drawCircle(0,40,stime%20)
 
             ctx.translate(70,80)
             ctx.fillStyle = color.white
@@ -239,10 +240,11 @@ const Page = () => {
         // @ts-ignore
         const context = canvas.getContext('2d')
         if(context){
-            context.drawCircle= function (x:number,y:number,r:number){
-                this.beginPath()
-                this.arc(x,y,r,0,PI2)
-                this.fill()
+            // @ts-ignore
+            drawCircle= function (x:number,y:number,r:number){
+                context.beginPath()
+                context.arc(x,y,r,0,PI2)
+                context.fill()
 
             }
             let anination = ()=>{

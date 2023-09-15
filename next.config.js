@@ -8,6 +8,7 @@ const basePath = `/`
 
 const nextConfig=()=>{
     return {
+
         output: 'export',
         // assetPrefix: assetPrefix,
         // basePath: basePath,
