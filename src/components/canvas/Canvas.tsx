@@ -5,8 +5,8 @@ import {useCanvas} from "@/components/canvas/useCanvas";
 
 // @ts-ignore
 const Canvas = props => {
-    const { draw, ...rest } = props
-    let canvasRef  = useCanvas(draw)
+    const { draw,init,update,time, ...rest } = props
+    let canvasRef  = useCanvas(draw,init,update,time)
     return  <canvas ref={canvasRef} {...rest}></canvas>
 }
 export  default Canvas
