@@ -14,7 +14,7 @@ export default function CoffeeLayout({
     children: React.ReactNode
 }) {
     return (
-        <div className={font.className}>
+        <div>
             {children}
         </div>
     )
