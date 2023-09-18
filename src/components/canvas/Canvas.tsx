@@ -3,6 +3,7 @@
 import {useEffect, useRef} from "react";
 import {useCanvas} from "@/components/canvas/useCanvas";
 
+
 // @ts-ignore
 const Canvas = props => {
     const { draw,init,update,time, ...rest } = props

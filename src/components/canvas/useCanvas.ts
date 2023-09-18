@@ -1,6 +1,6 @@
 import {useEffect, useRef} from "react";
 
-export  const useCanvas = (draw:any,init:any,update:any,time:number=30) => {
+export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => {
     const canvasRef = useRef<HTMLCanvasElement|null>(null)
     useEffect(()=>{
         if(!canvasRef.current){
