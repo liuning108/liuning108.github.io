@@ -93,7 +93,8 @@ let controls= {
 }
 
 
-const Page = () => {
+const Page = (props:{hide:boolean}) => {
+
    let ww = 0;
    let wh = 0;
 
@@ -108,9 +109,12 @@ const Page = () => {
          console.log("mP",mousePos)
 
       })
-      ww = ctx.canvas.width = window.innerWidth
-      wh = ctx.canvas.height = window.innerHeight
 
+     if (ctx.canvas.parentElement){
+        ww = ctx.canvas.width = ctx.canvas.parentElement.clientWidth
+        wh = ctx.canvas.height=ctx.canvas.parentElement.clientHeight
+
+     }
 
       ball = new Ball(ww/2,wh/2)
      controls.step = ()=>{ball.update(ww,wh)}
@@ -144,7 +148,10 @@ const Page = () => {
      gui.add(controls,"fps",1,120).listen().onChange((value)=>{
         context.time = 1000/value
      })
-     gui.show()
+     if(props.hide){
+        gui.hide()
+     }
+
 
 
    }
@@ -161,7 +168,7 @@ const Page = () => {
 
    }
    return (
-       <main className={"min-h-screen bg-gray-100"}>
+       <main className={"absolute w-full h-full bg-gray-100"}>
           <Canvas  className={"bg-black"} draw={draw} init={init} update={update}/>
        </main>
 
