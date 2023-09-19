@@ -1,11 +1,11 @@
 'use client'
 import Canvas from "@/components/canvas/Canvas";
 import * as dat from 'dat.gui';
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 class Ball {
    private p: { x: number; y: number };
    v: { x: number; y: number };
-   private a: { x: number; y: number };
+   a: { x: number; y: number };
    private r: number;
    public dragging: boolean;
 
@@ -34,21 +34,26 @@ class Ball {
       ctx.beginPath()
       ctx.translate(this.p.x, this.p.y)
       ctx.arc(0, 0, this.r, 0, Math.PI * 2)
-      ctx.fillStyle = 'white'
+      ctx.fillStyle = controls.color
       ctx.fill()
       ctx.restore()
    }
 
    update(ww: number, wh: number) {
 
+
       this.p.x += this.v.x
       this.p.y += this.v.y
       this.v.x +=this.a.x
       this.v.y +=this.a.y
-      this.v.x *=0.99
-      this.v.y *=0.99
+      this.v.x *=controls.fade
+      this.v.y *=controls.fade
+
 
       controls.vx = this.v.x
+      controls.vy = this.v.y
+      controls.ay = this.a.y
+
 
       this.checkBoundary(ww,wh)
    }
@@ -75,39 +80,76 @@ class Ball {
 
 }
 
-let controls = {
+let controls= {
    vx:0,
    vy:0,
-   ay:0.6
+   ay:0.6,
+   fade:0.99,
+   update:true,
+   color:'#fff',
+   fps:30,
+   step:()=>{
+   }
 }
 
-const Page = () => {
 
+const Page = () => {
    let ww = 0;
    let wh = 0;
 
    let ball:Ball
-   useEffect(()=>{
-      const gui = new dat.GUI();
+   let mousePos ={x:0,y:0}
+  const init = (ctx: CanvasRenderingContext2D,context:{time:number}) => {
 
-      gui.add(controls,"vx",-50,50)
-          .listen().onChange((value)=>{
-             ball.v.x =  value
+
+
+      ctx.canvas.addEventListener("mousedown",(evt)=>{
+          mousePos = {x:evt.offsetX,y:evt.offsetY}
+         console.log("mP",mousePos)
+
       })
-
-      gui.show()
-   },[])
-
-  const init = (ctx: CanvasRenderingContext2D) => {
       ww = ctx.canvas.width = window.innerWidth
       wh = ctx.canvas.height = window.innerHeight
+
+
       ball = new Ball(ww/2,wh/2)
+     controls.step = ()=>{ball.update(ww,wh)}
+     const gui = new dat.GUI();
+
+     gui.add(controls,"vx",-50,50)
+         .listen().onChange((value)=>{
+        ball.v.x =  value
+     })
+
+     gui.add(controls,"vy",-50,50)
+         .listen().onChange((value)=>{
+        ball.v.y =  value
+     })
 
 
+     gui.add(controls,"ay",-1,1).step(0.001)
+         .listen().onChange((value)=>{
+        ball.a.y =  value
+     })
+
+     gui.add(controls,"fade",0,1).step(0.01)
+         .listen()
+
+     gui.add(controls,"update")
+         .listen()
+
+     gui.addColor(controls,"color")
+         .listen()
+     gui.add(controls,"step")
+     gui.add(controls,"fps",1,120).listen().onChange((value)=>{
+        context.time = 1000/value
+     })
+     gui.show()
 
 
    }
    const update = ()=>{
+      if(!controls.update) return
       ball.update(ww,wh)
 
 
@@ -120,7 +162,7 @@ const Page = () => {
    }
    return (
        <main className={"min-h-screen bg-gray-100"}>
-          <Canvas className={"bg-black"} draw={draw} init={init} update={update}/>
+          <Canvas  className={"bg-black"} draw={draw} init={init} update={update}/>
        </main>
 
    )

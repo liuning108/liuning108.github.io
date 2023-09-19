@@ -1,6 +1,9 @@
 import {useEffect, useRef} from "react";
 
 export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => {
+    let context = {
+        time,
+    }
     const canvasRef = useRef<HTMLCanvasElement|null>(null)
     useEffect(()=>{
         if(!canvasRef.current){
@@ -13,18 +16,22 @@ export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => 
 
         if (ctx){
             if(init){
-                init(ctx)
+                init(ctx,context)
             }
             const  render=()=>{
                 frameCount++
-                draw(ctx,frameCount)
-                animationFrameId = requestAnimationFrame(render)
-
+                draw(ctx,frameCount,context)
+              ///  animationFrameId = requestAnimationFrame(render)
+                setTimeout(render,context.time)
             }
+
             if(update){
-                setInterval(()=>{
-                    update(ctx,frameCount)
-                },time)
+                const  up=()=>{
+                    console.log("fps",context.time)
+                    update(ctx,frameCount,context)
+
+                }
+                setInterval(up,1000/30)
             }
 
 
