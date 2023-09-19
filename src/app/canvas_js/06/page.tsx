@@ -1,7 +1,6 @@
 'use client'
 import Canvas from "@/components/canvas/Canvas";
-import * as dat from 'dat.gui';
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 class Ball {
    private p: { x: number; y: number };
    v: { x: number; y: number };
@@ -93,21 +92,22 @@ let controls= {
 }
 
 
-const Page = (props:{hide:boolean}) => {
+const Page = (props:any) => {
 
    let ww = 0;
    let wh = 0;
 
    let ball:Ball
    let mousePos ={x:0,y:0}
-  const init = (ctx: CanvasRenderingContext2D,context:{time:number}) => {
+   useEffect(()=>{
+     // const gui = new dat.GUI();
+   })
+  const init = async  (ctx: CanvasRenderingContext2D,context:{time:number}) => {
 
 
 
       ctx.canvas.addEventListener("mousedown",(evt)=>{
           mousePos = {x:evt.offsetX,y:evt.offsetY}
-         console.log("mP",mousePos)
-
       })
 
      if (ctx.canvas.parentElement){
@@ -118,7 +118,11 @@ const Page = (props:{hide:boolean}) => {
 
       ball = new Ball(ww/2,wh/2)
      controls.step = ()=>{ball.update(ww,wh)}
-     const gui = new dat.GUI();
+
+     const dat = await import('dat.gui')
+
+
+     let gui = new dat.GUI()
 
      gui.add(controls,"vx",-50,50)
          .listen().onChange((value)=>{

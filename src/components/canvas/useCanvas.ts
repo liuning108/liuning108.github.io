@@ -1,3 +1,4 @@
+'use client'
 import {useEffect, useRef} from "react";
 
 export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => {
