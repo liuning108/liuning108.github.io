@@ -1,11 +1,13 @@
 'use client'
 import Canvas from "@/components/canvas/Canvas";
+import { GUI } from "dat.gui";
 import {useEffect} from "react";
+
 class Ball {
-   private p: { x: number; y: number };
+   p: { x: number; y: number };
    v: { x: number; y: number };
    a: { x: number; y: number };
-   private r: number;
+   r: number;
    public dragging: boolean;
 
    constructor(x: number = 0, y: number = 0) {
@@ -36,42 +38,68 @@ class Ball {
       ctx.fillStyle = controls.color
       ctx.fill()
       ctx.restore()
+      this.drawV(ctx)
+   }
+
+   drawV(ctx: CanvasRenderingContext2D) {
+      ctx.beginPath()
+      ctx.save()
+      ctx.translate(this.p.x, this.p.y)
+      ctx.scale(3,3)
+      ctx.moveTo(0, 0)
+      ctx.lineTo(this.v.x, this.v.y)
+      ctx.strokeStyle = "blue"
+      ctx.stroke()
+
+      ctx.beginPath()
+      ctx.moveTo(0, 0)
+      ctx.lineTo(this.v.x, 0)
+      ctx.strokeStyle = "red"
+      ctx.stroke()
+
+
+      ctx.beginPath()
+      ctx.moveTo(0, 0)
+      ctx.lineTo(0, this.v.y)
+      ctx.strokeStyle = "green"
+      ctx.stroke()
+
+
+
+      ctx.restore()
    }
 
    update(ww: number, wh: number) {
-
-
-      this.p.x += this.v.x
-      this.p.y += this.v.y
-      this.v.x +=this.a.x
-      this.v.y +=this.a.y
-      this.v.x *=controls.fade
-      this.v.y *=controls.fade
-
-
-      controls.vx = this.v.x
-      controls.vy = this.v.y
-      controls.ay = this.a.y
-
-
-      this.checkBoundary(ww,wh)
+      if (this.dragging == false) {
+         this.p.x += this.v.x
+         this.p.y += this.v.y
+         this.v.x += this.a.x
+         this.v.y += this.a.y
+         this.v.x *= controls.fade
+         this.v.y *= controls.fade
+         controls.vx = this.v.x
+         controls.vy = this.v.y
+         controls.ay = this.a.y
+         this.checkBoundary(ww, wh)
+      }
    }
 
-   checkBoundary(ww: number, wh: number){
-      if(this.p.x+this.r>ww){
+
+   checkBoundary(ww: number, wh: number) {
+      if (this.p.x + this.r > ww) {
          this.v.x = -Math.abs(this.v.x)
       }
 
-      if(this.p.x-this.r<0){
+      if (this.p.x - this.r < 0) {
          this.v.x = Math.abs(this.v.x)
       }
 
-      if(this.p.y+this.r>wh){
+      if (this.p.y + this.r > wh) {
          this.v.y = -Math.abs(this.v.y)
       }
 
 
-      if(this.p.y-this.r<0){
+      if (this.p.y - this.r < 0) {
          this.v.y = Math.abs(this.v.y)
       }
    }
@@ -79,38 +107,75 @@ class Ball {
 
 }
 
-let controls= {
-   vx:0,
-   vy:0,
-   ay:0.6,
-   fade:0.99,
-   update:true,
-   color:'#fff',
-   fps:30,
-   step:()=>{
+let controls = {
+   vx: 0,
+   vy: 0,
+   ay: 0.6,
+   fade: 0.99,
+   update: true,
+   color: '#fff',
+   fps: 30,
+   step: () => {
    }
 }
 
+function getDistance(p1: { x: number, y: number }, p2: { x: number, y: number }) {
+   let vx = p1.x - p2.x
+   let vy = p1.y - p2.y
+   let dist = Math.pow(vx, 2) + Math.pow(vy, 2)
+   return Math.sqrt(dist)
 
-const Page = (props:any) => {
+}
+
+
+const Page = (props: any) => {
 
    let ww = 0;
    let wh = 0;
 
-   let ball:Ball
-   let mousePos ={x:0,y:0}
-   useEffect(()=>{
-     // const gui = new dat.GUI();
+   let ball: Ball
+   let mousePos = {x: 0, y: 0}
+   useEffect(() => {
+      // const gui = new dat.GUI();
    })
+   let gui: GUI;
   const init = async  (ctx: CanvasRenderingContext2D,context:{time:number}) => {
 
 
 
       ctx.canvas.addEventListener("mousedown",(evt)=>{
           mousePos = {x:evt.offsetX,y:evt.offsetY}
-      })
+          let dist = getDistance(mousePos,ball.p)
+          if (dist<ball.r){
+             console.log("Click Ball")
+             ball.dragging =true
 
-     if (ctx.canvas.parentElement){
+          }
+      })
+        ctx.canvas.addEventListener("mouseup",(evt)=>{
+           ball.dragging = false
+        })
+     ctx.canvas.addEventListener("mousemove",(evt)=>{
+          let nowPos = {x:evt.offsetX,y:evt.offsetY}
+           if (ball.dragging){
+              let dx  = nowPos.x -mousePos.x
+              let dy  = nowPos.y -mousePos.y
+              ball.p.x +=dx
+              ball.p.y +=dy
+
+
+              ball.v.x = dx
+              ball.v.y = dy
+
+
+           }
+         mousePos = nowPos
+     })
+
+
+
+
+        if (ctx.canvas.parentElement){
         ww = ctx.canvas.width = ctx.canvas.parentElement.clientWidth
         wh = ctx.canvas.height=ctx.canvas.parentElement.clientHeight
 
@@ -122,38 +187,42 @@ const Page = (props:any) => {
      const dat = await import('dat.gui')
 
 
-     let gui = new dat.GUI()
 
-     gui.add(controls,"vx",-50,50)
-         .listen().onChange((value)=>{
-        ball.v.x =  value
-     })
+     if  (!gui) {
+        gui = new dat.GUI()
 
-     gui.add(controls,"vy",-50,50)
-         .listen().onChange((value)=>{
-        ball.v.y =  value
-     })
+        gui.add(controls, "vx", -50, 50)
+            .listen().onChange((value) => {
+           ball.v.x = value
+        })
+
+        gui.add(controls, "vy", -50, 50)
+            .listen().onChange((value) => {
+           ball.v.y = value
+        })
 
 
-     gui.add(controls,"ay",-1,1).step(0.001)
-         .listen().onChange((value)=>{
-        ball.a.y =  value
-     })
+        gui.add(controls, "ay", -1, 1).step(0.001)
+            .listen().onChange((value) => {
+           ball.a.y = value
+        })
 
-     gui.add(controls,"fade",0,1).step(0.01)
-         .listen()
+        gui.add(controls, "fade", 0, 1).step(0.01)
+            .listen()
 
-     gui.add(controls,"update")
-         .listen()
+        gui.add(controls, "update")
+            .listen()
 
-     gui.addColor(controls,"color")
-         .listen()
-     gui.add(controls,"step")
-     gui.add(controls,"fps",1,120).listen().onChange((value)=>{
-        context.time = 1000/value
-     })
-     if(props.hide){
-        gui.hide()
+        gui.addColor(controls, "color")
+            .listen()
+        gui.add(controls, "step")
+        // gui.add(controls, "fps", 1, 120).listen().onChange((value) => {
+        //    context.time = 1000 / value
+        // })
+        if (props.hide) {
+           gui.hide()
+        }
+
      }
 
 

@@ -22,8 +22,8 @@ export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => 
             const  render=()=>{
                 frameCount++
                 draw(ctx,frameCount,context)
-              ///  animationFrameId = requestAnimationFrame(render)
-                setTimeout(render,context.time)
+                animationFrameId = requestAnimationFrame(render)
+                //setTimeout(render,context.time)
             }
 
             if(update){
