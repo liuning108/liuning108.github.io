@@ -1,6 +1,6 @@
 class  Vector {
-    private  x: number =0;
-    private  y: number=0;
+    x: number =0;
+    y: number=0;
     constructor(x:number,y:number) {
         this.set(x,y)
     }
@@ -35,10 +35,35 @@ class  Vector {
         return new  Vector(this.x,this.y)
     }
 
+    angle(){
+        return Math.atan2(this.y,this.x)
+    }
+
 
     toString():string {
         return  `(${this.x},${this.y})`
     }
+
+    draw(ctx:CanvasRenderingContext2D,color="black"){
+        ctx.save()
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.rotate(this.angle())
+        ctx.lineTo(this.length(),0)
+        ctx.lineTo(this.length()-3,-4)
+        ctx.lineTo(this.length()-3,4)
+        ctx.lineTo(this.length(),0)
+        ctx.strokeStyle =  color
+        ctx.lineWidth=3
+        ctx.stroke()
+
+        ctx.fillText(this.toString(),this.length()/2,10)
+
+        ctx.restore()
+
+    }
+
+
 
 
 }

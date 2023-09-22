@@ -1,20 +1,29 @@
 'use client'
 import Canvas from "@/components/canvas/Canvas";
-import {GUI} from "dat.gui";
+import { GUI } from "dat.gui";
 import {useEffect} from "react";
-import Vector from "@/util/vector";
 
 class Ball {
-   p: Vector;
-   v: Vector;
-   a: Vector;
+   p: { x: number; y: number };
+   v: { x: number; y: number };
+   a: { x: number; y: number };
    r: number;
    public dragging: boolean;
 
    constructor(x: number = 0, y: number = 0) {
-      this.p = new Vector(x, y)
-      this.v = new Vector(5, 5)
-      this.a = new Vector(0, 1)
+      this.p = {
+         x,
+         y
+      }
+      this.v = {
+         x: 5,
+         y: 5,
+      }
+
+      this.a = {
+         x: 0,
+         y: 1,
+      }
 
       this.r = 50
       this.dragging = false
@@ -62,9 +71,12 @@ class Ball {
 
    update(ww: number, wh: number) {
       if (this.dragging == false) {
-         this.p = this.p.add(this.v)
-         this.v = this.v.add(this.a)
-         this.v = this.v.mul(controls.fade)
+         this.p.x += this.v.x
+         this.p.y += this.v.y
+         this.v.x += this.a.x
+         this.v.y += this.a.y
+         this.v.x *= controls.fade
+         this.v.y *= controls.fade
          controls.vx = this.v.x
          controls.vy = this.v.y
          controls.ay = this.a.y
@@ -107,13 +119,22 @@ let controls = {
    }
 }
 
+function getDistance(p1: { x: number, y: number }, p2: { x: number, y: number }) {
+   let vx = p1.x - p2.x
+   let vy = p1.y - p2.y
+   let dist = Math.pow(vx, 2) + Math.pow(vy, 2)
+   return Math.sqrt(dist)
+
+}
+
+
 const Page = (props: any) => {
 
    let ww = 0;
    let wh = 0;
 
    let ball: Ball
-   let mousePos: Vector = new Vector(0, 0)
+   let mousePos = {x: 0, y: 0}
    useEffect(() => {
       // const gui = new dat.GUI();
    })
@@ -123,8 +144,8 @@ const Page = (props: any) => {
 
 
       ctx.canvas.addEventListener("mousedown",(evt)=>{
-         mousePos = new Vector(evt.offsetX, evt.offsetY);
-         let dist = mousePos.sub(ball.p).length()
+          mousePos = {x:evt.offsetX,y:evt.offsetY}
+          let dist = getDistance(mousePos,ball.p)
           if (dist<ball.r){
              console.log("Click Ball")
              ball.dragging =true
@@ -135,13 +156,16 @@ const Page = (props: any) => {
            ball.dragging = false
         })
      ctx.canvas.addEventListener("mousemove",(evt)=>{
-        let nowPos = new Vector(evt.offsetX, evt.offsetY)
+          let nowPos = {x:evt.offsetX,y:evt.offsetY}
            if (ball.dragging){
-              let delta = nowPos.sub(mousePos)
+              let dx  = nowPos.x -mousePos.x
+              let dy  = nowPos.y -mousePos.y
+              ball.p.x +=dx
+              ball.p.y +=dy
 
-              ball.p = ball.p.add(delta)
 
-              ball.v = delta.clone()
+              ball.v.x = dx
+              ball.v.y = dy
 
 
            }
