@@ -23,8 +23,17 @@ class  Vector {
         return new Vector(this.x*s,this.y*s)
     }
 
-    length(){
+    unit() {
+        return this.mul(1/this.length)
+    }
+
+    // @ts-ignore
+    get length(){
         return Math.sqrt(this.x*this.x+this.y*this.y)
+    }
+    set length(s:number){
+        let newLen =this.unit().mul(s)
+        this.set(newLen.x,newLen.y)
     }
 
     eq(v:Vector):boolean {
@@ -49,15 +58,15 @@ class  Vector {
         ctx.beginPath()
         ctx.moveTo(0,0)
         ctx.rotate(this.angle())
-        ctx.lineTo(this.length(),0)
-        ctx.lineTo(this.length()-3,-4)
-        ctx.lineTo(this.length()-3,4)
-        ctx.lineTo(this.length(),0)
+        ctx.lineTo(this.length,0)
+        ctx.lineTo(this.length-3,-4)
+        ctx.lineTo(this.length-3,4)
+        ctx.lineTo(this.length,0)
         ctx.strokeStyle =  color
         ctx.lineWidth=3
         ctx.stroke()
 
-        ctx.fillText(this.toString(),this.length()/2,10)
+        ctx.fillText(this.toString(),this.length/2,10)
 
         ctx.restore()
 

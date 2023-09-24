@@ -109,8 +109,6 @@ class  Game{
         }
         if(this.food){
             this.drawBlock(this.food.x,this.food.y,'#D83F31')
-
-
         }
 
         // let color="#F4E0B9"
@@ -154,8 +152,9 @@ class  Game{
         this.snake?.update()
         this.snake?.body.forEach((db)=>{
             if(db.eq(this.food)){
-                this.createFood()
+
                 if(this.snake){
+                    this.createFood()
                     this.snake.maxLen++;
                 }
 
@@ -179,7 +178,7 @@ class  Game{
 
             ctx.save()
             ctx.beginPath()
-            ctx.strokeStyle  = '#EE9322'
+            ctx.strokeStyle  = `rgba(255, 105, 105,${(100-r)/100})`
             ctx.arc(pos.x+GRID_SIZE/2,pos.y+GRID_SIZE/2,r,0,Math.PI*2)
             ctx.lineWidth=3
             ctx.stroke()
