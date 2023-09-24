@@ -124,7 +124,7 @@ const Page = (props: any) => {
 
       ctx.canvas.addEventListener("mousedown",(evt)=>{
          mousePos = new Vector(evt.offsetX, evt.offsetY);
-         let dist = mousePos.sub(ball.p).length()
+         let dist = mousePos.sub(ball.p).length
           if (dist<ball.r){
              console.log("Click Ball")
              ball.dragging =true

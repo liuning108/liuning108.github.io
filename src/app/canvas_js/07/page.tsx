@@ -37,7 +37,7 @@ const Page = (props: any) => {
            let c =new  Vector(ww/2,wh/2)
            ctx.translate(c.x,c.y)
            let md =mosPos.sub(c)
-           md.mul(1/md.length()).mul(200).draw(ctx)
+           md.mul(1/md.length).mul(200).draw(ctx)
        ctx.restore()
 
 
