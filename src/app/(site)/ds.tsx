@@ -3,6 +3,8 @@ import Canva01 from "@/app/canvas_js/01/page";
 import Canva04 from "@/app/canvas_js/04/page";
 import Canva05 from "@/app/canvas_js/05/page";
 import Canva06 from "@/app/canvas_js/06/page";
+import Canva08 from "@/app/canvas_js/08/page";
+
 import {JSX} from "react";
 
 type CardItemProps = {
@@ -12,6 +14,12 @@ type CardItemProps = {
     name:string
 }
 export const  cardList: CardItemProps[] = [
+    {
+        children:<Canva08 hide={true}/>,
+        className:"bg-[#eee]",
+        url:'/canvas_js/08',
+        name:"Snake"
+    },
     {
         children:<Canva06 hide={true}/>,
         className:"bg-[#eee]",

@@ -41,7 +41,7 @@ class  Vector {
 
 
     toString():string {
-        return  `(${this.x},${this.y})`
+        return  `(${Math.round(this.x)},${Math.round(this.y)})`
     }
 
     draw(ctx:CanvasRenderingContext2D,color="black"){

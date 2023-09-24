@@ -32,7 +32,7 @@ export  const useCanvas = (draw:any,init:any,update:any,time:number=1000/30) => 
                     update(ctx,frameCount,context)
 
                 }
-                setInterval(up,1000/30)
+                setInterval(up,time)
             }
 
 
