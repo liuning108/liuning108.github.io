@@ -11,6 +11,7 @@ class  Vector {
         return this
     }
 
+
     add(v:Vector){
         return new Vector(this.x+v.x,this.y+v.y)
     }
@@ -48,6 +49,10 @@ class  Vector {
         return Math.atan2(this.y,this.x)
     }
 
+    deg():number{
+        return parseInt(` ${this.angle()*(180/Math.PI)}`)
+    }
+
 
     toString():string {
         return  `(${Math.round(this.x)},${Math.round(this.y)})`
@@ -73,8 +78,12 @@ class  Vector {
     }
 
 
-
-
+    setRA(r: number, deg: number) {
+        let theta =  deg* (Math.PI/180)
+        let x = Math.cos(theta) * r
+        let y = Math.sin(theta) * r
+        return new Vector(x,y)
+    }
 }
 
 export  default  Vector
