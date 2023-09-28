@@ -24,7 +24,7 @@ const Page = (props: any) => {
 
 
     }
-    const draw = (ctx: CanvasRenderingContext2D,time) => {
+    const draw = (ctx: CanvasRenderingContext2D,time:number) => {
         ctx.clearRect(0,0,ww,wh)
 
         ctx.save()
