@@ -21,7 +21,7 @@ const Page = (props: any) => {
         })
 
         for (let i = 0;i<100;i++){
-            ps.push(mousePos.setRA(250+Math.random()*ww/5,Math.random()*360) )
+            ps.push(mousePos.setRA(80+Math.random()*ww/4,Math.random()*360) )
         }
 
 
@@ -50,7 +50,7 @@ const Page = (props: any) => {
         //cent pointe
         ctx.save()
             let cen = new Vector(ww/2,wh/2)
-            let delta = cen.add(cen.setRA(Math.sin(time/360)*ww/2,time%360)).sub(cen)
+            let delta = cen.add(cen.setRA(Math.sin(time/100)*ww/2,time*1.5%360)).sub(cen)
             ctx.translate(cen.x,cen.y)
 
             //draw Cent Point
