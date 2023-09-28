@@ -18,7 +18,7 @@ class  Particle {
         ctx.save()
             ctx.beginPath()
             ctx.translate(this.p.x,this.p.y)
-            ctx.arc(0,0,this.r,0,Math.PI*2)
+            this.v.draw(ctx,this.color, this.r*10)
             ctx.fillStyle = this.color
             ctx.fill()
         ctx.restore()
@@ -28,7 +28,7 @@ class  Particle {
         this.p =this.p.add(this.v)
         this.v = this.v.add(new Vector(0,0.5))
         this.v=this.v.mul(0.99-this.r/200)
-        this.r = this.r*0.99
+        this.r = this.r*0.97
 
         if (this.p.y+this.r>wh){
             this.v.y = - Math.abs(this.v.y)

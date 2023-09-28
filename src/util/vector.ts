@@ -65,20 +65,20 @@ class  Vector {
         return  `(${Math.round(this.x)},${Math.round(this.y)})`
     }
 
-    draw(ctx:CanvasRenderingContext2D,color="black"){
+    draw(ctx:CanvasRenderingContext2D,color="black",r:number=20){
         ctx.save()
         ctx.beginPath()
         ctx.moveTo(0,0)
         ctx.rotate(this.angle())
-        ctx.lineTo(this.length,0)
-        ctx.lineTo(this.length-3,-4)
-        ctx.lineTo(this.length-3,4)
-        ctx.lineTo(this.length,0)
+        ctx.lineTo(this.unit().mul(r+3).length,0)
+        ctx.lineTo(this.unit().mul(r+3).length-3,-4)
+        ctx.lineTo(this.unit().mul(r+3).length-3,4)
+        ctx.lineTo(this.unit().mul(r+3).length,0)
         ctx.strokeStyle =  color
         ctx.lineWidth=3
         ctx.stroke()
 
-        ctx.fillText(this.toString(),this.length/2,10)
+        //ctx.fillText(this.toString(),this.length/2,10)
 
         ctx.restore()
 
