@@ -1,6 +1,8 @@
 class  Vector {
     x: number =0;
     y: number=0;
+
+    public static PiToDeg = (180/Math.PI)
     public static Polar(r: number, deg: number){
         let theta =  deg* (Math.PI/180)
         let x = Math.cos(theta) * r
