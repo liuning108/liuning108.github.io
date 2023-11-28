@@ -1,9 +1,25 @@
+$clr-dark: #0f172a
+$clr-light: #f1f5f9
+$clr-accent: #e11d48
+
+
 .container
-  height: 100vh
-  overflow: hidden
-  padding: 0
-  margin: 0
-  background: black
-  color-scheme: dark
-  color: #FFF
+  width: 80%
+  margin: 0 auto
+  border: 10px solid $clr-dark
+  .item
+    padding-left: 0.5em
+    background: #fb7185
+    font-weight: 700
+    color: $clr-light
+    border: 10px solid $clr-accent
+
+
+.container
+  display: grid
+  grid-template-rows: 100px 300px 100px
+  grid-template-columns: 1fr 3fr
+
+
+
 

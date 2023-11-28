@@ -6,7 +6,7 @@ const data = {
     children: [
         {
             name: "Fish",
-            children: [
+            children: [ 
                 {name: "Marine", children: [{name: "Hailbut"}]},
                 {name: "Fresh Water", children: [{name: 'Rainbow trout'}]
             }]
