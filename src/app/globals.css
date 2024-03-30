@@ -6,10 +6,10 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Droid Sans", serif
+  font-family: -apple-system, BlinkMacSystemFont, "Droid Sans", serif;
 }
 a {
-  color:inherit;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -31,9 +31,8 @@ a {
   src: url("/Burtons.otf");
 }
 
-
 table {
-  font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -52,7 +51,8 @@ table tr:hover {
   background-color: #ddd;
 }
 
-table th, tfoot td {
+table th,
+tfoot td {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
