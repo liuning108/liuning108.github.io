@@ -23,7 +23,7 @@ export const cardList: CardItemProps[] = [
     children: <P10 w={400} h={400} />,
     className: "bg-black",
     url: "/p5/10",
-    name: "Gifts",
+    name: "Time Clock",
   },
   {
     children: <Canva15 hide={true} />,

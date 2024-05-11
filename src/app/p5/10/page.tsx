@@ -6,7 +6,7 @@ import { Console } from "console";
 
 function page(props: any) {
   return (
-    <div>
+    <div className={"absolute w-full h-full flex justify-center items-center"}>
       <Sketch config={props}></Sketch>
     </div>
   );
