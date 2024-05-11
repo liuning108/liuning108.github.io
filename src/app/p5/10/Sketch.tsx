@@ -3,8 +3,9 @@ import p5 from "p5";
 import Circle from "./Circle";
 import { tree } from "d3-hierarchy";
 import noise from "@/app/../../public/noise.jpg";
+import { Console } from "console";
 
-const Sketch = () => {
+const Sketch = (props: any) => {
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,7 +22,10 @@ const Sketch = () => {
         });
       };
       p.setup = () => {
-        p.createCanvas(p.windowWidth, p.windowHeight).parent(dom);
+        let w = props.config.w || p.windowWidth;
+        let h = props.config.h || p.windowHeight;
+
+        p.createCanvas(w, h).parent(dom);
 
         cirs.push(
           new Circle({
