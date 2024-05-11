@@ -1,0 +1,9 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9938],{4247:function(e,s,t){Promise.resolve().then(t.bind(t,5286))},5286:function(e,s,t){"use strict";t.r(s);var r=t(7437),n=t(2265);s.default=()=>((0,n.useEffect)(()=>{let e=document.querySelectorAll("#shops .list-item"),s=1;for(let t of e)t.style.backgroundColor="#CCC",t.style.margin="10px",t.textContent="".concat(s++,".").concat(t.textContent)},[]),(0,r.jsxs)("div",{children:[(0,r.jsx)("h1",{children:"Liuning Coffee Home"}),(0,r.jsx)("h2",{children:"Our Coffee"}),(0,r.jsxs)("div",{id:"coffees",children:[(0,r.jsx)("p",{className:"list-item",children:"Cappuccio"}),(0,r.jsx)("p",{className:"list-item",children:"Espresso"}),(0,r.jsx)("p",{className:"list-item",children:"Mocha"})]}),(0,r.jsx)("h2",{children:"Out Shops"}),(0,r.jsxs)("div",{id:"shops",children:[(0,r.jsx)("p",{className:"list-item",children:"FrankFurt"}),(0,r.jsx)("p",{className:"list-item",children:"Zunich"})]})]}))},622:function(e,s,t){"use strict";/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var r=t(2265),n=Symbol.for("react.element"),i=(Symbol.for("react.fragment"),Object.prototype.hasOwnProperty),o=r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,c={key:!0,ref:!0,__self:!0,__source:!0};function l(e,s,t){var r,l={},f=null,u=null;for(r in void 0!==t&&(f=""+t),void 0!==s.key&&(f=""+s.key),void 0!==s.ref&&(u=s.ref),s)i.call(s,r)&&!c.hasOwnProperty(r)&&(l[r]=s[r]);if(e&&e.defaultProps)for(r in s=e.defaultProps)void 0===l[r]&&(l[r]=s[r]);return{$$typeof:n,type:e,key:f,ref:u,props:l,_owner:o.current}}s.jsx=l,s.jsxs=l},7437:function(e,s,t){"use strict";e.exports=t(622)}},function(e){e.O(0,[2971,596,1744],function(){return e(e.s=4247)}),_N_E=e.O()}]);
