@@ -30,8 +30,9 @@ export const useCanvas = ({
       };
       render();
       if (update) {
+        console.log("kkkk");
         const up = () => {
-          update(ctx);
+          update();
         };
         animationIntervalID = setInterval(up, time);
       }

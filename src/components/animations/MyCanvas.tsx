@@ -1,9 +1,9 @@
 import React from "react";
 import { useCanvas } from "./useCanvas";
-export interface CanvasProps {
+export interface CanvasProps extends React.HTMLAttributes<HTMLCanvasElement> {
   draw: (ctx: RenderingContext, frameCount: number) => void;
   init?: (ctx: RenderingContext) => void;
-  update?: (ctx: RenderingContext) => void;
+  update?: () => void;
   time?: number;
   [key: string]: any;
 }
