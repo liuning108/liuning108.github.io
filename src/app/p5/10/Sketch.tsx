@@ -3,7 +3,6 @@ import p5 from "p5";
 import Circle from "./Circle";
 import { tree } from "d3-hierarchy";
 import noise from "@/app/../../public/noise.jpg";
-import { Image } from "next/image";
 
 const Sketch = () => {
   const canvasRef = useRef<HTMLDivElement>(null);

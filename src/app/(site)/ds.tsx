@@ -11,88 +11,86 @@ import Canva13 from "@/app/canvas_js/13/page";
 import Canva14 from "@/app/canvas_js/14/page";
 import Canva15 from "@/app/canvas_js/15/page";
 
-
-import {JSX} from "react";
+import { JSX } from "react";
 
 type CardItemProps = {
-    children:JSX.Element
-    className:string
-    url:string
-    name:string
-}
-export const  cardList: CardItemProps[] = [
-    {
-        children:<Canva15 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/15',
-        name:"Gifts"
-    },
-    {
-        children:<Canva14 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/14',
-        name:"Trees"
-    },
-    {
-        children:<Canva13 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/13',
-        name:"DNA"
-    },
-    {
-        children:<Canva11 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/11',
-        name:"Polar"
-    },
-    {
-        children:<Canva10 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/10',
-        name:"雷达"
-    },
+  children: JSX.Element;
+  className: string;
+  url: string;
+  name: string;
+};
+export const cardList: CardItemProps[] = [
+  {
+    children: <Canva15 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/15",
+    name: "Gifts",
+  },
+  {
+    children: <Canva14 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/14",
+    name: "Trees",
+  },
+  {
+    children: <Canva13 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/13",
+    name: "DNA",
+  },
+  {
+    children: <Canva11 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/11",
+    name: "Polar",
+  },
+  {
+    children: <Canva10 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/10",
+    name: "雷达",
+  },
 
-    {
-        children:<Canva09 hide={true}/>,
-        className:"bg-black",
-        url:'/canvas_js/09',
-        name:"Particle"
-    },
-    {
-        children:<Canva08 hide={true}/>,
-        className:"bg-[#eee]",
-        url:'/canvas_js/08',
-        name:"Snake"
-    },
-    {
-        children:<Canva06 hide={true}/>,
-        className:"bg-[#eee]",
-        url:'/canvas_js/06',
-        name:"Ball"
-    },
-    {
-        children:<Canva05/>,
-        className:"bg-[#eee]",
-        url:'/canvas_js/05',
-        name:"九宫图"
-    },
-    {
-        children:<Canva04/>,
-        className:"",
-        url:'/canvas_js/04',
-        name:"童年"
-    },
-    {
-        children: <Canva02/>,
-        className:"bg-blue-500",
-        url:'/canvas_js/02',
-        name:"My Cake"
-    },
-    {
-        children:<Canva01/>,
-        className:"",
-        url:'/canvas_js/01',
-        name:"Flex排版"
-    }
-
-]
+  {
+    children: <Canva09 hide={true} />,
+    className: "bg-black",
+    url: "/canvas_js/09",
+    name: "Particle",
+  },
+  {
+    children: <Canva08 hide={true} />,
+    className: "bg-[#eee]",
+    url: "/canvas_js/08",
+    name: "Snake",
+  },
+  {
+    children: <Canva06 hide={true} />,
+    className: "bg-[#eee]",
+    url: "/canvas_js/06",
+    name: "Ball",
+  },
+  {
+    children: <Canva05 />,
+    className: "bg-[#eee]",
+    url: "/canvas_js/05",
+    name: "九宫图",
+  },
+  {
+    children: <Canva04 />,
+    className: "",
+    url: "/canvas_js/04",
+    name: "童年",
+  },
+  {
+    children: <Canva02 />,
+    className: "bg-blue-500",
+    url: "/canvas_js/02",
+    name: "My Cake",
+  },
+  {
+    children: <Canva01 />,
+    className: "",
+    url: "/canvas_js/01",
+    name: "Flex排版",
+  },
+];

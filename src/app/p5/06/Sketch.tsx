@@ -57,7 +57,7 @@ async function quickSort(start: number, end: number) {
   // await Promise.all([quickSort(start, index - 1), quickSort(index + 1, end)]);
 }
 
-async function partition(start: number, end: number): number {
+async function partition(start: number, end: number): Promise<number> {
   for (let i = start; i < end; i++) {
     states[i] = 1;
   }

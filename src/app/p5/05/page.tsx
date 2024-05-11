@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
-import Sketch from "./Sketch";
+const Sketch = dynamic(() => import("./Sketch"), { ssr: false });
 import { className } from "postcss-selector-parser";
+import dynamic from "next/dynamic";
 
 function page() {
   return (

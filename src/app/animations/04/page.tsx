@@ -9,6 +9,9 @@ let wh = 0;
 let gctx: CanvasRenderingContext2D;
 var ball: Ball;
 function init(ctx: RenderingContext): void {
+  if (window === undefined) {
+    return;
+  }
   ctx = ctx as CanvasRenderingContext2D;
   gctx = ctx;
   ww = ctx.canvas.width = window.innerWidth;
@@ -41,6 +44,9 @@ let mousePos = { x: 0, y: 0 };
 const Page = () => {
   useEffect(() => {
     let resizeHandler = () => {
+      if (window === undefined) {
+        return;
+      }
       ww = gctx.canvas.width = window.innerWidth;
       wh = gctx.canvas.height = window.innerHeight;
       ball = new Ball(ww, wh);

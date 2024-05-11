@@ -1,6 +1,7 @@
 "use client";
+import dynamic from "next/dynamic";
 import React from "react";
-import Sketch from "./Sketch";
+const Sketch = dynamic(() => import("./Sketch"), { ssr: false });
 
 function page() {
   return (
