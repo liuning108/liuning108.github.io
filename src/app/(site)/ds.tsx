@@ -12,9 +12,6 @@ import Canva14 from "@/app/canvas_js/14/page";
 import Canva15 from "@/app/canvas_js/15/page";
 import P10 from "@/app/p5/10/page";
 
-import { JSX } from "react";
-import { will } from "../../../.next/static/chunks/app/(site)/page";
-
 type CardItemProps = {
   children: JSX.Element;
   className: string;
