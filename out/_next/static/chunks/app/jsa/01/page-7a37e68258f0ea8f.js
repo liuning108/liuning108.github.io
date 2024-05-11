@@ -1,0 +1,9 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1034],{5798:function(e,n,t){Promise.resolve().then(t.bind(t,5182))},5182:function(e,n,t){"use strict";t.r(n);var r=t(7437),s=t(2265),o=t(3640),a=t.n(o);n.default=()=>{let e=(0,s.useRef)(null),n=(0,s.useRef)(null);return(0,s.useEffect)(()=>{},[]),(0,r.jsxs)("div",{children:[(0,r.jsx)("nav",{ref:e,className:a().nav,children:(0,r.jsx)("p",{ref:n,className:a().p,children:"Yoshy"})}),(0,r.jsx)("section",{className:a().section,children:(0,r.jsx)("button",{onClick:()=>{var t,r;null===(t=e.current)||void 0===t||t.classList.toggle(a()["nav-slide"]),null===(r=n.current)||void 0===r||r.classList.toggle(a().fade)},className:a().button,children:"Hover Me"})})]})}},3640:function(e){e.exports={section:"page01_section__CW4EV",button:"page01_button__0Lsvd",nav:"page01_nav__o_kbf","nav-slide":"page01_nav-slide__vaYKN",p:"page01_p__V25jg",fade:"page01_fade__HugPy"}},622:function(e,n,t){"use strict";/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Meta Platforms, Inc. and affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var r=t(2265),s=Symbol.for("react.element"),o=(Symbol.for("react.fragment"),Object.prototype.hasOwnProperty),a=r.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,l={key:!0,ref:!0,__self:!0,__source:!0};function _(e,n,t){var r,_={},c=null,u=null;for(r in void 0!==t&&(c=""+t),void 0!==n.key&&(c=""+n.key),void 0!==n.ref&&(u=n.ref),n)o.call(n,r)&&!l.hasOwnProperty(r)&&(_[r]=n[r]);if(e&&e.defaultProps)for(r in n=e.defaultProps)void 0===_[r]&&(_[r]=n[r]);return{$$typeof:s,type:e,key:c,ref:u,props:_,_owner:a.current}}n.jsx=_,n.jsxs=_},7437:function(e,n,t){"use strict";e.exports=t(622)}},function(e){e.O(0,[2971,596,1744],function(){return e(e.s=5798)}),_N_E=e.O()}]);
