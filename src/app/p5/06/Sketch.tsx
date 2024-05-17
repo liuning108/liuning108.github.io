@@ -12,9 +12,9 @@ const Sketch = () => {
 
     const sketch = (p: p5) => {
       p.setup = () => {
-        p.createCanvas(710, 400).parent(dom);
-        p.background(140);
-        for (let i = 0; i < p.width / 8; i++) {
+        p.createCanvas(710, 300).parent(dom);
+        p.background(0);
+        for (let i = 0; i < p.width / 10; i += 1) {
           values.push(p.random(p.height));
           states.push(-1);
         }
@@ -22,23 +22,32 @@ const Sketch = () => {
       };
 
       p.draw = () => {
-        p.background(140);
+        p.background("#481E14"); //481E14
         for (let i = 0; i < values.length; i++) {
-          p.fill(255);
+          p.noStroke();
+          p.fill("#FEEFAD");
           if (states[i] == 1) {
-            p.fill("#D6FFB7");
+            p.fill("#F3B95F");
           }
           if (states[i] == 0) {
-            p.fill("red");
+            p.fill("#EE4266");
           }
-          p.rect(i * 8, p.height - values[i], 8, values[i]);
+          p.rect(i * 10, p.height - values[i], 5, values[i]);
         }
       };
     };
-    new p5(sketch);
+    let inst = new p5(sketch);
+    return () => {
+      inst.remove();
+    };
   }, []);
 
-  return <div className="opacity-20" ref={canvasRef}></div>;
+  return (
+    <div>
+      <h1 className={" mb-2 font-bold text-2xl text-slate-100"}>quickSort</h1>
+      <div ref={canvasRef}></div>
+    </div>
+  );
 };
 
 async function quickSort(start: number, end: number) {
@@ -47,14 +56,14 @@ async function quickSort(start: number, end: number) {
   }
 
   for (let i = 0; i < values.length; i++) {
-    await sleep(200);
+    await sleep(50);
     states[i - 1] = -1;
     states[i] = 0;
   }
 
-  // let index = await partition(start, end);
-  // states[index] = -1;
-  // await Promise.all([quickSort(start, index - 1), quickSort(index + 1, end)]);
+  let index = await partition(start, end);
+  states[index] = -1;
+  await Promise.all([quickSort(start, index - 1), quickSort(index + 1, end)]);
 }
 
 async function partition(start: number, end: number): Promise<number> {
@@ -85,7 +94,7 @@ async function partition(start: number, end: number): Promise<number> {
 async function swap(i: number, j: number) {
   // adjust the pace of the simulation by changing the
   // value
-  await sleep(25);
+  await sleep(50);
   let temp = values[i];
   values[i] = values[j];
   values[j] = temp;
