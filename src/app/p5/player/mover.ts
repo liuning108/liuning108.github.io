@@ -50,6 +50,16 @@ class Mover {
     this.acc.add(f);
   }
 
+  drag(c: number) {
+    let drag = this.vel.copy();
+    drag.normalize();
+    drag.mult(-1);
+    let speedSq = this.vel.magSq();
+    drag.setMag(c * speedSq);
+
+    this.appleForce(drag);
+  }
+
   edges(width: number, height: number) {
     if (this.pos.y >= height - this.r) {
       this.pos.y = height - this.r;

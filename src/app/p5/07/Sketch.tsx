@@ -26,9 +26,15 @@ const Sketch = () => {
           p.noStroke();
           p.fill(this.color);
 
+          p.push();
+          p.colorMode(p.HSB);
+          p.drawingContext.shadowColor = p.color(360 * p.random(), 80, 80);
+          p.drawingContext.shadowBlur = 2000;
+          p.pop();
+
           let u = p.map(this.x / this.z, 0, 1, 0, p.width);
           let v = p.map(this.y / this.z, 0, 1, 0, p.height);
-          let r = p.map(this.z, 0, p.width, 16, 0);
+          let r = p.map(this.z, 0, p.width, 20, 0);
           p.ellipse(u, v, r, r);
 
           let pu = p.map(this.x / (this.z + speed), 0, 1, 0, p.width);
@@ -36,10 +42,11 @@ const Sketch = () => {
 
           this.pz = this.z;
           p.stroke(this.color);
+
           p.line(pu, pv, u, v);
         }
         update() {
-          let speed = p.map(p.mouseX, 0, p.width, 0, 50);
+          let speed = p.map(p.mouseX, 0, p.width, 0, 20);
 
           console.log(speed);
           this.z = this.z - speed;
@@ -51,7 +58,7 @@ const Sketch = () => {
           this.x = p.random(-p.width, p.width);
           this.y = p.random(-p.height, p.height);
           this.z = p.random(p.width);
-          this.color = 255;
+          this.color = 254;
 
           this.pz = this.z;
         }
@@ -62,13 +69,14 @@ const Sketch = () => {
       p.setup = () => {
         p.createCanvas(p.windowWidth, p.windowHeight).parent(dom);
         p.background(0);
-        for (let index = 0; index < 1000; index++) {
+        for (let index = 0; index < 300; index++) {
           stars.push(new Star());
         }
       };
 
       p.draw = () => {
         p.background(0);
+
         p.translate(p.width / 2, p.height / 2);
 
         stars.forEach((star) => {
