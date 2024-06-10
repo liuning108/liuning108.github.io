@@ -15,7 +15,7 @@ const Sketch = () => {
 
     const sketch = (p: p5) => {
       p.preload = () => {
-        target = p.createVideo(["../../01.mp4", "../../01.mp4"], (vid) => {
+        target = p.createVideo(["../../04.mp4", "../../23.webm"], (vid) => {
           target.position(0, 0);
           target.hide();
           target.showControls();
@@ -27,7 +27,7 @@ const Sketch = () => {
 
       p.setup = () => {
         p.createCanvas(400, 500).parent(dom);
-        target.size(48, 48);
+        target.size(48 * 2, 48 * 2);
       };
       const density = "Ñ@#W$ch刘宁9876543210dabc;:+=-,._";
       p.draw = () => {
