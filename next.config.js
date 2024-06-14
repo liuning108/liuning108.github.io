@@ -14,6 +14,7 @@ const nextConfig = () => {
         // basePath: basePath,
         images: { unoptimized: true },
 
+
     }
 }
 

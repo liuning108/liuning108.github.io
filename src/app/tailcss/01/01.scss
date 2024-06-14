@@ -1,0 +1,13 @@
+.container {
+  @apply max-w-full h-[100vh];
+  @apply border-dashed border-red-500 border-[2px];
+  @apply flex justify-between flex-wrap items-center content-center;
+  > div {
+    @apply bg-[#373142] text-white w-[100px] h-[100px];
+    @apply text-center;
+    @apply leading-[100px];
+    &:nth-child(2) {
+      @apply h-[150px];
+    }
+  }
+}
